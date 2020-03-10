@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="node_modules/bootstrap4-toggle/css/bootstrap4-toggle.min.css">
+        <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    </head>
+    <body>
+        <script id="entry-template" type="text/x-handlebars-template">
+            <div id="lights" class="bg-secondary">
+                <div class='row no-gutters'>
+                    {{#each lights}}
+                        <div class='col-12 col-md-4 col-lg-3 text-center p-5 border lights_box' id='container-img-{{this.id}}'>
+                            <h2>Light : {{this.id}} </h2>
+                            <i class="far fa-lightbulb fa-5x" data-color={{this.color}}></i>
+                            <div class="p-3">
+                                <input {{this.statu}} data-onstyle="success" data-offstyle="danger" class="lightBtn" type="checkbox" data-toggle="toggle" id="toggle-{{this.id}}">
+                            </div>
+                            <!-- BUTTON MODAL -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{this.id}}">
+                                <i class="text-light far fa-edit text-success"></i>
+                            </button>
+                            <!-- MODAL -->
+                            <div class="modal fade" id="exampleModal-{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Light : {{this.id}}</p>
+                                            
+                                                <button type="submit" class="create-light btn btn-primary">Mettre a jour </button>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </script>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js"></script>
+        <script src="node_modules/handlebars/dist/handlebars.js"></script>
+        <!-- <script src="node_modules/popper.js/dist/popper.js"></script> -->
+        <script src="script.js"></script>
+</body>
+</html>
+
